@@ -17,6 +17,9 @@ enum Mycode flag;
 //定义一个字符编码指针
 QTextCodec *codec;
 
+//定义一个全局变量
+QString path;
+
 //构造函数
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -40,9 +43,13 @@ MainWindow::MainWindow(QWidget *parent) :
     //str = ui->textEdit->toPlainText();
     //cout << str;
 
+    //初始化，默认显示utf-8
     flag = utf_8;
     //设置编码，这里设置UTF-8编码
-    codec = QTextCodec::codecForName("UTF-8");
+    //codec = QTextCodec::codecForName("UTF-8");
+    codec = QTextCodec::codecForName("GBK");
+
+    path = "";
 }
 
 //析构函数
@@ -56,7 +63,9 @@ void MainWindow::on_actionUtf_8_triggered()
     //utf-8编码
     flag = utf_8;
     //标签显示utf-8
-    ui->label->setText(codec->toUnicode("编码：UTF-8"));
+    ui->label->setText("编码：UTF-8");
+    //ui->label->setText(codec->toUnicode("编码：UTF-8"));
+    //ui->label->setText(codec->fromUnicode("编码：UTF-8"));
 }
 
 void MainWindow::on_actionGbk_triggered()
@@ -64,14 +73,17 @@ void MainWindow::on_actionGbk_triggered()
     //gbk编码
     flag = gbk;
     //标签显示gbk
-    ui->label->setText(codec->toUnicode("编码：GBK"));
+    ui->label->setText("编码：GBK");
+    //ui->label->setText(codec->toUnicode("编码：GBK"));
+    //ui->label->setText(codec->fromUnicode("编码：GBK"));
 }
 
 //打开文件处理函数
 void MainWindow::on_actionOpen_triggered()
 {
     //1、打开一个文件，获取文件的路径
-    QString path = QFileDialog::getOpenFileName();
+    //QString path = QFileDialog::getOpenFileName();
+    path = QFileDialog::getOpenFileName();
 
     if(path.isEmpty())//Qt处理如果没有选择文件
     {
@@ -118,5 +130,150 @@ void MainWindow::on_actionOpen_triggered()
     ui->textEdit->setText(str);
 
     //6、关闭文件
+    fclose(fp);
+}
+
+//文件另存为
+void MainWindow::on_actionSave_as_triggered()
+{
+    //1、选择一个文件路径，路径是qt得到的，编码为utf-8，返回值类型是QString
+    //QString path = QFileDialog::getSaveFileName();
+    path = QFileDialog::getSaveFileName();
+    if(path.isEmpty())
+    {
+        return;
+    }
+
+    //2、需要将utf-8转换gbk，再将QString转换为char *
+    const char *fileName = codec->fromUnicode(path).data();
+
+    //3、打开文件路径，fopen，需要的路径是char *，如果有中文需要gbk
+    FILE *fp = fopen(fileName, "wb");
+    if(fp == NULL)
+    {
+        cout << "on_actionSave_as_triggered fopen err";
+        return;
+    }
+
+    //4、获取编辑区的内容
+    QString str = ui->textEdit->toPlainText();
+
+    //5、将编辑区的内容类型QString转换为char *
+    const char *buf = str.toStdString().data();
+
+    //6、将编辑区的内容写入文件fputs()
+    fputs(buf, fp);
+
+    //7、关闭文件
+    fclose(fp);
+}
+
+void MainWindow::on_actionUndo_triggered()
+{
+    ui->textEdit->undo();
+}
+
+void MainWindow::on_actionCopy_triggered()
+{
+    ui->textEdit->copy();
+}
+
+void MainWindow::on_actionPaste_triggered()
+{
+    ui->textEdit->paste();
+}
+
+void MainWindow::on_actionCut_triggered()
+{
+    ui->textEdit->cut();
+}
+
+void MainWindow::on_actionComplie_triggered()
+{
+    //路径带空格无法编译成功
+    //system("gcc E:\\liu workstations\\tmp_file\\temp_file_1\\a.c -o E:\\liu workstations\\tmp_file\\temp_file_1\\a");
+
+    //system("gcc E:\\liu\\c\\demo\\a.c -o E:\\liu\\c\\demo\\a");
+    //system("cmd /k E:\\liu\\c\\demo\\a");
+
+    if(path.isEmpty())
+    {
+        //cout << "path is empty";
+        return;
+    }
+    QString demo = path;
+    //把.c替换成空字符
+    demo.replace(".c", "");
+    QString cmd = QString("gcc %1 -o %2").arg(path).arg(demo);
+    //如果有中文需要将utf-8转换gbk，再将QString转换为char *
+    int ret = system(codec->fromUnicode(cmd).data());
+    //ret成功返回0
+    if(ret != 0)
+    {
+        return;
+    }
+
+    //运行程序
+    QString target = QString("cmd /k %1").arg(demo);
+
+    //如果有中文需要将utf-8转换gbk，再将QString转换为char *
+    system(codec->fromUnicode(target));
+}
+
+void MainWindow::on_actionExit_triggered()
+{
+    exit(0);
+}
+
+void MainWindow::on_actionNew_file_triggered()
+{
+    //清空内容
+    ui->textEdit->clear();//1
+    //ui->textEdit->setText("");//2
+
+    //清空路径
+    path.clear();//1
+    //path = "";//2
+}
+
+void MainWindow::on_actionSave_triggered()
+{
+    //1、路径为空，没有选择文件，需要选择文件
+    if(path.isEmpty())
+    {
+        path = QFileDialog::getSaveFileName();
+        if(path.isEmpty())
+        {
+            return;
+        }
+    }
+
+    //2、路径不为空，说明已经打开了文件，需要把内容写入保存原来的路径文件里
+    //a、打开文件
+    //b、获取内容
+    //c、保存内容
+    //d、关闭文件
+
+    //2、需要将utf-8转换gbk，再将QString转换为char *
+    const char *fileName = codec->fromUnicode(path).data();
+
+    //3、打开文件路径，fopen，需要的路径是char *，如果有中文需要gbk
+    FILE *fp = fopen(fileName, "wb");
+    if(fp == NULL)
+    {
+        cout << "on_actionSave_as_triggered fopen err";
+        return;
+    }
+
+    //4、获取编辑区的内容
+    QString str = ui->textEdit->toPlainText();
+
+    //5、将编辑区的内容类型QString转换为char *
+    const char *buf = str.toStdString().data();
+
+    //6、将编辑区的内容写入文件fputs()
+    fputs(buf, fp);
+
+    //7、关闭文件
     fclose(fp);
 }
