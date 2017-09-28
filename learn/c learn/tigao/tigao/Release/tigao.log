@@ -1,0 +1,12 @@
+﻿  day_04_指针.c
+day_04_指针.c(8): warning C4477: “printf”: 格式字符串“%x”需要类型“unsigned int”的参数，但可变参数 1 拥有了类型“char **”
+day_04_指针.c(12): warning C4477: “printf”: 格式字符串“%x”需要类型“unsigned int”的参数，但可变参数 1 拥有了类型“char **”
+day_04_指针.c(16): warning C4477: “printf”: 格式字符串“%x”需要类型“unsigned int”的参数，但可变参数 1 拥有了类型“char **”
+day_04_指针.c(25): warning C4477: “printf”: 格式字符串“%x”需要类型“unsigned int”的参数，但可变参数 1 拥有了类型“char **”
+day_04_指针.c(40): warning C4013: “system”未定义；假设外部返回 int
+  正在生成代码
+  3 of 6 functions (50.0%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  tigao.vcxproj -> E:\liu workstations\cpp\learn\c learn\tigao\Release\tigao.exe
