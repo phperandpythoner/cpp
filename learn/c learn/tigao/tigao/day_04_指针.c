@@ -65,6 +65,7 @@ void main()
 }
 */
 
+/*
 int changemem(char **p1, int *len1, char **p2, int *len2)
 {
 	int ret = 0;
@@ -118,6 +119,73 @@ int main()
 		p2 = NULL;
 	}
 
+	system("pause");
+	return 0;
+}
+*/
+
+/*
+int *fun()
+{
+	static int a = 10;
+	return &a;
+}
+
+int main()
+{
+	int *p = NULL;
+	p = fun();//执行函数后静态局部变量没有释放，还可以操作指针所指向的内存
+	printf("p=%d\n", *p);
+	*p = 20;
+	printf("p2=%d\n", *p);
+
+	system("pause");
+	return 0;
+}
+*/
+
+int getstr(char *source, char *buf1, char *buf2)
+{
+	int ret = 0;
+	int n = strlen(source);
+	int i = 0;
+	for (i = 0; i < n; i++)
+	{
+		if ((i % 2) != 0)
+		{
+			*buf1 = source[i];
+			buf1++;
+		}
+		else
+		{
+			*buf2 = *(source + i);
+			buf2++;
+		}
+	}
+
+	//加结束符
+	*buf1 = 0;
+	*buf2 = 0;
+
+	return ret;
+}
+//把字符串"1a2b3c4d5e"按奇、偶数分离
+int main()
+{
+	char *p = "1a2b3c4d5e";
+	char buf1[50];
+	char buf2[50];
+	int ret = 0;
+
+	ret = getstr(p, buf1, buf2);
+	if (ret != 0)
+	{
+		printf("getstr function err:%d\n", ret);
+		return -1;
+	}
+
+	printf("buf1=%s\nbuf2=%s\n", buf1, buf2);
+	
 	system("pause");
 	return 0;
 }

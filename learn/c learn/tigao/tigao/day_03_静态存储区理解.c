@@ -1,3 +1,4 @@
+/*
 #include <stdio.h>
 
 //指针指向谁，就把谁的地址赋值给指针
@@ -32,3 +33,4 @@ void main03()
 	
 	system("pause");
 }
+*/

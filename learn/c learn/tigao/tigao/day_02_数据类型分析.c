@@ -1,3 +1,4 @@
+/*
 #include <stdio.h>
 
 //数据类型的用途
@@ -15,3 +16,4 @@ void main02()
 	printf("helle vs\n");
 	system("pause");
 }
+*/

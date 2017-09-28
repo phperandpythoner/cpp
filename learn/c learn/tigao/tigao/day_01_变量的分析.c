@@ -1,3 +1,4 @@
+/*
 #include <stdio.h>
 
 //变量的本质
@@ -26,3 +27,4 @@ void main01()
 	printf("helle vs\n");
 	system("pause");
 }
+*/
