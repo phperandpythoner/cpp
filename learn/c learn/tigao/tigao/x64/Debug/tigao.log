@@ -1,0 +1,24 @@
+﻿  day_04_指针.c
+e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_04_指针.c(367): warning C4013: “malloc”未定义；假设外部返回 int
+e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_04_指针.c(367): warning C4312: “类型转换”: 从“int”转换到更大的“int *”
+e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_04_指针.c(372): warning C4312: “类型转换”: 从“int”转换到更大的“char **”
+e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_04_指针.c(380): warning C4312: “类型转换”: 从“int”转换到更大的“char *”
+e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_04_指针.c(394): warning C4013: “free”未定义；假设外部返回 int
+e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_04_指针.c(403): warning C4013: “system”未定义；假设外部返回 int
+e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_04_指针.c(368): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“::size_t”
+  e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_04_指针.c(368): note: 请考虑在格式字符串中使用“%zd”
+e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_04_指针.c(369): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“::size_t”
+  e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_04_指针.c(369): note: 请考虑在格式字符串中使用“%zd”
+e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_04_指针.c(373): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“::size_t”
+  e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_04_指针.c(373): note: 请考虑在格式字符串中使用“%zd”
+e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_04_指针.c(413): warning C4312: “类型转换”: 从“int”转换到更大的“char **”
+e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_04_指针.c(421): warning C4312: “类型转换”: 从“int”转换到更大的“char *”
+e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_04_指针.c(414): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“::size_t”
+  e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_04_指针.c(414): note: 请考虑在格式字符串中使用“%zd”
+  day_02_数据类型分析.c
+  day_03_静态存储区理解.c
+  day_01_变量的分析.c
+  c提高.c
+  正在生成代码...
+  tigao.vcxproj -> E:\liu workstations\cpp\learn\c learn\tigao\x64\Debug\tigao.exe
+  tigao.vcxproj -> E:\liu workstations\cpp\learn\c learn\tigao\x64\Debug\tigao.pdb (Partial PDB)
