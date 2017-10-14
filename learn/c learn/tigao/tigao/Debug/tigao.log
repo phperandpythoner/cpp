@@ -1,6 +1,6 @@
-﻿  day_05_二维数组.c
-e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_05_二维数组.c(97): warning C4013: “system”未定义；假设外部返回 int
-e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_05_二维数组.c(82): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“int (*)[4]”
-e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_05_二维数组.c(82): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 2 拥有了类型“int (*)[4]”
+﻿  day_08_链表操作.c
+e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_08_链表操作.c(53): warning C4013: “malloc”未定义；假设外部返回 int
+e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_08_链表操作.c(186): warning C4013: “free”未定义；假设外部返回 int
+e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_08_链表操作.c(341): warning C4013: “system”未定义；假设外部返回 int
   tigao.vcxproj -> E:\liu workstations\cpp\learn\c learn\tigao\Debug\tigao.exe
   tigao.vcxproj -> E:\liu workstations\cpp\learn\c learn\tigao\Debug\tigao.pdb (Partial PDB)

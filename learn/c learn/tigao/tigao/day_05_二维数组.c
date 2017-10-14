@@ -72,6 +72,7 @@ int main()
 }
 */
 
+/*
 //数组指针和二维数组
 int main()
 {
@@ -97,3 +98,4 @@ int main()
 	system("pause");
 	return 0;
 }
+*/

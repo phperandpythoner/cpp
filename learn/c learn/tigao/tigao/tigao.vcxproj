@@ -117,6 +117,10 @@
     <ClCompile Include="day_02_数据类型分析.c" />
     <ClCompile Include="day_04_指针.c" />
     <ClCompile Include="day_05_二维数组.c" />
+    <ClCompile Include="day_06_结构体.c" />
+    <ClCompile Include="day_07_文件操作.c" />
+    <ClCompile Include="day_08_链表操作.c" />
+    <ClCompile Include="day_09_函数指针.c" />
     <ClCompile Include="test_指针练习.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
