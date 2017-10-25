@@ -38,6 +38,7 @@ int main()
 
 
 
+/*
 typedef struct Node {
 	int id;
 	struct Node *next; //指针域
@@ -314,6 +315,86 @@ int SListNodeSort(Node *head)
 
 	return 0;
 }
+
+//升序插入结点
+int SListNodeInsertPro(Node *head, int x)
+{
+	int ret = SListNodeSort(head);
+	if (ret != 0)
+	{
+		return ret;
+	}
+
+	if (head == NULL)
+	{
+		return -1;
+	}
+	Node *pPre = head;
+	Node *pCur = head->next;
+
+	while (pCur != NULL)
+	{
+		if (pCur->id > x)//找到匹配结点
+		{
+			break;
+		}
+
+		//pPre指向pCur位置
+		pPre = pCur;
+		pCur = pCur->next;//pCur指向下一个结点
+	}
+
+	//2种情况
+	//1、找匹配的结点，pCur为匹配结点，pPre为pCur的上一个结点
+	//2、没有找到匹配的结点，pCur为空结点，pPre为最后一个结点
+
+	//给新结点动态分配空间
+	Node *pNew = (Node *)malloc(sizeof(Node));
+	if (pNew == NULL)
+	{
+		return -2;
+	}
+
+	//给pNew成员赋值
+	pNew->id = x;
+	pNew->next = NULL;
+
+	//插入指定位置
+	pPre->next = pNew;//pPre下一个指向pNew
+	pNew->next = pCur;//pNew下一个指向pCur
+
+	return 0;
+
+}
+
+//翻转链表，把链表的指向反过来
+int SListNodeReverse(Node *head)
+{
+	if (head == NULL || head->next == NULL || head->next->next == NULL)
+	{
+		return -1;
+	}
+
+	Node *pPre = head->next;
+	Node *pCur = pPre->next;
+	pPre->next = NULL;
+	Node *tmp = NULL;
+
+	while (pCur != NULL)
+	{
+		tmp = pCur->next;
+		pCur->next = pPre;
+
+		pPre = pCur;
+		pCur = tmp;
+	}
+
+	//head->next->next = NULL;
+	head->next = pPre;
+
+	return 0;
+}
+
 int main()
 {
 	Node *head = NULL;
@@ -336,8 +417,17 @@ int main()
 	SListNodeSort(head);
 	SListPrint(head);
 
+	printf("升序插入结点7后\n");
+	SListNodeInsertPro(head, 7);
+	SListPrint(head);
+
+	SListNodeReverse(head);
+	printf("链表翻转\n");
+	SListPrint(head);
+
 	SListNodeDestroy(head);
 
 	system("pause");
 	return 0;
 }
+*/

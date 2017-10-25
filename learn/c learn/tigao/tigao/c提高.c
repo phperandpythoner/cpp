@@ -1,6 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_DEPRECATE
 #include <stdio.h>
 #include <string.h>
+#include "memwatch.h"
 
 /*
 //选择法排序
@@ -32,6 +34,65 @@ int main()
 	{
 		printf("%d,", a[i]);
 	}
+
+	system("pause");
+	return 0;
+}
+*/
+
+
+
+/*
+//函数递归
+int add(int n)
+{
+	if (n == 100)
+	{
+		return n;
+	}
+
+	return n + add(n + 1);
+}
+
+int add2(int n)
+{
+	if (n == 1)
+	{
+		return n;
+	}
+
+	return n + add2(n - 1);
+}
+
+int main()
+{
+	//累加1-100的结果
+	int i = 0;
+	int sum = 0;
+	for (i = 0; i <= 100; i++)
+	{
+		sum += i;
+	}
+	printf("累加1-100的结果：%d\n", sum);
+
+
+	printf("函数递归累加1-100的结果：%d\n", add(1));
+
+
+	printf("函数递归累加1-100的结果：%d\n", add2(100));
+
+	system("pause");
+	return 0;
+}
+*/
+
+
+
+/*
+//内存检测
+int main()
+{
+	char *p = (char *)malloc(100);
 
 	system("pause");
 	return 0;

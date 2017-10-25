@@ -1,6 +1,1 @@
-﻿  day_08_链表操作.c
-e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_08_链表操作.c(53): warning C4013: “malloc”未定义；假设外部返回 int
-e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_08_链表操作.c(186): warning C4013: “free”未定义；假设外部返回 int
-e:\liu workstations\cpp\learn\c learn\tigao\tigao\day_08_链表操作.c(341): warning C4013: “system”未定义；假设外部返回 int
-  tigao.vcxproj -> E:\liu workstations\cpp\learn\c learn\tigao\Debug\tigao.exe
-  tigao.vcxproj -> E:\liu workstations\cpp\learn\c learn\tigao\Debug\tigao.pdb (Partial PDB)
+﻿LINK : fatal error LNK1104: 无法打开文件“MEMWATCH.obj”
